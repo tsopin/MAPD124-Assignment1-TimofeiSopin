@@ -21,8 +21,23 @@ class ViewController: UIViewController {
     var firstSlot : Int = 0
     var secondSlot : Int = 0
     var thirdSlot : Int = 0
-
+    
+    var currentBet : Int = 0 {
+        didSet {
+            currentBetLabel.text = "\(currentBet)"
+        }
+        
+    }
+    var userMoney : Int = 0
+    
     let slotArray = ["s1", "s2", "s3", "s4", "s5", "s6", "s7"]
+    
+    func reset() {
+        userMoneyLabel.text = "\(userMoney + 100)"
+        currentBetLabel.text = "\(5)"
+        jackpotLabel.text = "\(0)"
+    }
+    
     
     @IBAction func spinButton(_ sender: Any) {
         
@@ -37,9 +52,27 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func currentBetBtn(_ sender: Any) {
+    @IBAction func currentBetBtn(_ sender: UIButton) {
+        
+        if sender.tag == 1 {
+            
+            if currentBet > 0 {
+            
+                currentBet -= 5}
+            
+        } else if sender.tag == 2{
+            currentBet += 5
+        }
+        
     }
     
+    @IBAction func resetBtn(_ sender: UIButton) {
+        reset()
+    }
+    
+    @IBAction func quitButton(_ sender: UIButton) {
+        UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+    }
     
     
     
@@ -48,14 +81,16 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       reset()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 

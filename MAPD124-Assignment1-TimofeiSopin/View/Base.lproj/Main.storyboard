@@ -43,8 +43,8 @@
                                             <action selector="spinButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fee-Vk-0Pd"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="usermoney" translatesAutoresizingMaskIntoConstraints="NO" id="3cv-nC-0PT">
-                                        <rect key="frame" x="50" y="8" width="170" height="70"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="usermoney" translatesAutoresizingMaskIntoConstraints="NO" id="3cv-nC-0PT" userLabel="User Money">
+                                        <rect key="frame" x="25" y="8" width="192" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="currentbet" translatesAutoresizingMaskIntoConstraints="NO" id="OtH-At-trn">
@@ -52,25 +52,23 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" tag="1" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJY-5Q-tq0" userLabel="Left">
-                                        <rect key="frame" x="516" y="33" width="44" height="44"/>
+                                        <rect key="frame" x="519" y="33" width="44" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="leftArrow"/>
                                         <connections>
-                                            <action selector="currentBetBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2XQ-rT-PRR"/>
-                                            <action selector="currentBettUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sbV-VF-g7b"/>
+                                            <action selector="currentBetBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F7s-LW-LsZ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2K-9g-LSE" userLabel="Right">
-                                        <rect key="frame" x="668" y="33" width="44" height="44"/>
+                                        <rect key="frame" x="667" y="33" width="44" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="rightArrow"/>
                                         <connections>
-                                            <action selector="currentBetBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L4A-xR-JSw"/>
-                                            <action selector="currentBettUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4cK-Sd-MkF"/>
+                                            <action selector="currentBetBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M5D-h1-AL6"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dr5-cv-Hj1">
-                                        <rect key="frame" x="50" y="36" width="162" height="39"/>
+                                        <rect key="frame" x="45" y="36" width="162" height="39"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="32"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -135,11 +133,17 @@
                                 <rect key="frame" x="20" y="13" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="reset"/>
+                                <connections>
+                                    <action selector="resetBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TWS-2T-rT7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2i-7U-A6F">
                                 <rect key="frame" x="672" y="13" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="quit"/>
+                                <connections>
+                                    <action selector="quitButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WIm-k9-Lrr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -174,6 +178,6 @@
         <image name="s6" width="385" height="385"/>
         <image name="slot" width="909" height="309"/>
         <image name="spinBtn" width="345" height="105"/>
-        <image name="usermoney" width="255" height="96"/>
+        <image name="usermoney" width="288" height="96"/>
     </resources>
 </document>

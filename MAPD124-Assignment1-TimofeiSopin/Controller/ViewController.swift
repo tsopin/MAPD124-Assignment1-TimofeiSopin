@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var secondSlotImageView: UIImageView!
     @IBOutlet weak var thirdSlotImageView: UIImageView!
     
+    
+    // Variables
+    
     var firstSlot : Int = 0
     var secondSlot : Int = 0
     var thirdSlot : Int = 0
@@ -26,19 +29,21 @@ class ViewController: UIViewController {
         didSet {
             currentBetLabel.text = "\(currentBet)"
         }
-        
     }
-    var userMoney : Int = 0
     
+    var userMoney : Int = 0
     let slotArray = ["s1", "s2", "s3", "s4", "s5", "s6", "s7"]
     
+    
+    // Reset app, set all variables to default
     func reset() {
         userMoneyLabel.text = "\(userMoney + 100)"
-        currentBetLabel.text = "\(5)"
+        //        currentBetLabel.text = "\(5)"
+        currentBet = 5
         jackpotLabel.text = "\(0)"
     }
     
-    
+    // Spin Button
     @IBAction func spinButton(_ sender: Any) {
         
         firstSlot = Int(arc4random_uniform(7))
@@ -51,13 +56,13 @@ class ViewController: UIViewController {
         
     }
     
-    
+    // Current bet
     @IBAction func currentBetBtn(_ sender: UIButton) {
         
         if sender.tag == 1 {
             
             if currentBet > 0 {
-            
+                
                 currentBet -= 5}
             
         } else if sender.tag == 2{
@@ -69,7 +74,7 @@ class ViewController: UIViewController {
     @IBAction func resetBtn(_ sender: UIButton) {
         reset()
     }
-    
+    // Quit button
     @IBAction func quitButton(_ sender: UIButton) {
         UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
     }
@@ -81,7 +86,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       reset()
+        reset()
         
         // Do any additional setup after loading the view, typically from a nib.
     }

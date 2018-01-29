@@ -89,19 +89,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="slot" translatesAutoresizingMaskIntoConstraints="NO" id="YDH-BI-rho">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                        <rect key="frame" x="0.0" y="-2" width="600" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="s1" translatesAutoresizingMaskIntoConstraints="NO" id="aXJ-D8-cgx" userLabel="First Slot">
-                                        <rect key="frame" x="33" y="21" width="159" height="159"/>
+                                        <rect key="frame" x="32" y="20" width="159" height="159"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="s3" translatesAutoresizingMaskIntoConstraints="NO" id="Fnz-Km-m4p" userLabel="Second Slot">
-                                        <rect key="frame" x="220" y="21" width="159" height="159"/>
+                                        <rect key="frame" x="220" y="20" width="159" height="159"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="s6" translatesAutoresizingMaskIntoConstraints="NO" id="9Ld-0G-jiv" userLabel="Third Slot">
-                                        <rect key="frame" x="409" y="21" width="159" height="159"/>
+                                        <rect key="frame" x="409" y="20" width="159" height="159"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>

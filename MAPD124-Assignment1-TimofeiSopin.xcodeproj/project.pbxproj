@@ -59,6 +59,7 @@
 				7481A282201EA5F000D025FD /* Controller */,
 				7481A283201EA64600D025FD /* Supporting Files */,
 				7481A275201EA5AC00D025FD /* Assets.xcassets */,
+				7481A27A201EA5AC00D025FD /* Info.plist */,
 				7481A277201EA5AC00D025FD /* LaunchScreen.storyboard */,
 			);
 			path = "MAPD124-Assignment1-TimofeiSopin";
@@ -91,7 +92,6 @@
 		7481A283201EA64600D025FD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7481A27A201EA5AC00D025FD /* Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";

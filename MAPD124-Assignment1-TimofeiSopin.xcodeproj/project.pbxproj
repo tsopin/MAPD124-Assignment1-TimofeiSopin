@@ -12,6 +12,7 @@
 		7481A274201EA5AC00D025FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7481A272201EA5AC00D025FD /* Main.storyboard */; };
 		7481A276201EA5AC00D025FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7481A275201EA5AC00D025FD /* Assets.xcassets */; };
 		7481A279201EA5AC00D025FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7481A277201EA5AC00D025FD /* LaunchScreen.storyboard */; };
+		7481A2DB201FFCB100D025FD /* bntSnd.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7481A2DA201FFCB100D025FD /* bntSnd.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		7481A275201EA5AC00D025FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7481A278201EA5AC00D025FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7481A27A201EA5AC00D025FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7481A2DA201FFCB100D025FD /* bntSnd.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bntSnd.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		7481A283201EA64600D025FD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7481A2DA201FFCB100D025FD /* bntSnd.wav */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 				7481A279201EA5AC00D025FD /* LaunchScreen.storyboard in Resources */,
 				7481A276201EA5AC00D025FD /* Assets.xcassets in Resources */,
 				7481A274201EA5AC00D025FD /* Main.storyboard in Resources */,
+				7481A2DB201FFCB100D025FD /* bntSnd.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -24,23 +25,49 @@ class ViewController: UIViewController {
     var firstSlot : Int = 0
     var secondSlot : Int = 0
     var thirdSlot : Int = 0
-    
+    var audioPlayer: AVAudioPlayer!
     var currentBet : Int = 0 {
         didSet {
             currentBetLabel.text = "\(currentBet)"
         }
     }
     
-    var userMoney : Int = 0
+    var userMoney : Int = 0  {
+        didSet {
+            userMoneyLabel.text = "\(userMoney)"
+        }
+    }
+    var jackPotAmount : Int = 0 {
+        didSet {
+            jackpotLabel.text = "\(jackPotAmount)"
+        }
+    }
     let slotArray = ["s1", "s2", "s3", "s4", "s5", "s6", "s7"]
     
     
     // Reset app, set all variables to default
     func reset() {
-        userMoneyLabel.text = "\(userMoney + 100)"
+        userMoney = userMoney + 1000
+        userMoneyLabel.text = "\(userMoney)"
         //        currentBetLabel.text = "\(5)"
         currentBet = 5
-        jackpotLabel.text = "\(0)"
+        jackPotAmount = 5000
+        jackpotLabel.text = "\(jackPotAmount)"
+    }
+    
+    
+    func playSound() {
+        
+        let soundURL = Bundle.main.url(forResource: "bntSnd", withExtension: "wav")
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL!)
+        }
+        catch {
+            print(error)
+        }
+        audioPlayer.play()
+        
     }
     
     // Spin Button
@@ -54,6 +81,8 @@ class ViewController: UIViewController {
         secondSlotImageView.image = UIImage(named: slotArray[secondSlot])
         thirdSlotImageView.image = UIImage(named: slotArray[thirdSlot])
         
+        playSound()
+        game()
     }
     
     // Current bet
@@ -62,14 +91,39 @@ class ViewController: UIViewController {
         if sender.tag == 1 {
             
             if currentBet > 0 {
-                
-                currentBet -= 5}
+                currentBet -= 5
+            }
             
-        } else if sender.tag == 2{
+        } else if sender.tag == 2 {
             currentBet += 5
         }
-        
     }
+    
+    
+    func game() {
+        
+        if (firstSlot == secondSlot && secondSlot == thirdSlot)  {
+            
+            userMoney = userMoney + jackPotAmount
+            userMoneyLabel.text = "\(userMoney)"
+            jackPotAmount = 0
+            jackpotLabel.text = "\(jackPotAmount)"
+            
+        } else if firstSlot == secondSlot || firstSlot == thirdSlot || secondSlot == thirdSlot  {
+            
+            userMoney = userMoney + currentBet * 2
+            userMoneyLabel.text = "\(userMoney)"
+            
+        } else {
+            
+            userMoney = userMoney - currentBet
+            userMoneyLabel.text = "\(userMoney)"
+            jackPotAmount = jackPotAmount + currentBet
+            jackpotLabel.text = "\(jackPotAmount)"
+            
+        }
+    }
+    
     
     @IBAction func resetBtn(_ sender: UIButton) {
         reset()
@@ -78,11 +132,6 @@ class ViewController: UIViewController {
     @IBAction func quitButton(_ sender: UIButton) {
         UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
     }
-    
-    
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,6 +144,7 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     
 }

@@ -11,6 +11,9 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
+    let impact = UIImpactFeedbackGenerator()
+    
+    
     @IBOutlet weak var jackpotLabel: UILabel!
     @IBOutlet weak var userMoneyLabel: UILabel!
     @IBOutlet weak var currentBetLabel: UILabel!
@@ -19,6 +22,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var secondSlotImageView: UIImageView!
     @IBOutlet weak var thirdSlotImageView: UIImageView!
     
+    @IBOutlet weak var spinButton: UIButton!
     
     // Variables
     
@@ -32,30 +36,30 @@ class ViewController: UIViewController {
         }
     }
     
-    var userMoney : Int = 0  {
-        didSet {
-            userMoneyLabel.text = "\(userMoney)"
-        }
-    }
-    var jackPotAmount : Int = 0 {
-        didSet {
-            jackpotLabel.text = "\(jackPotAmount)"
-        }
-    }
-    let slotArray = ["s1", "s2", "s3", "s4", "s5", "s6", "s7"]
+    var userMoney : Int = 0
+    var jackPotAmount : Int = 0
+    let slotArray = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8"]
+   
+    
+    
+    
     
     
     // Reset app, set all variables to default
     func reset() {
-        userMoney = userMoney + 1000
+        userMoney = 100
         userMoneyLabel.text = "\(userMoney)"
-        //        currentBetLabel.text = "\(5)"
         currentBet = 5
         jackPotAmount = 5000
         jackpotLabel.text = "\(jackPotAmount)"
+        spinButton.isHidden = false
     }
     
     
+    
+    
+    
+    ///////// Play Sound
     func playSound() {
         
         let soundURL = Bundle.main.url(forResource: "bntSnd", withExtension: "wav")
@@ -70,36 +74,61 @@ class ViewController: UIViewController {
         
     }
     
+    
+    
+    
+    
     // Spin Button
     @IBAction func spinButton(_ sender: Any) {
-        
-        firstSlot = Int(arc4random_uniform(7))
-        secondSlot = Int(arc4random_uniform(7))
-        thirdSlot = Int(arc4random_uniform(7))
+    
+        firstSlot = Int(arc4random_uniform(8))
+        secondSlot = Int(arc4random_uniform(8))
+        thirdSlot = Int(arc4random_uniform(8))
         
         firstSlotImageView.image = UIImage(named: slotArray[firstSlot])
         secondSlotImageView.image = UIImage(named: slotArray[secondSlot])
         thirdSlotImageView.image = UIImage(named: slotArray[thirdSlot])
         
+        impact.impactOccurred()
         playSound()
         game()
+        
+        if userMoneyLabel.text == "Game Over" {
+            spinButton.isHidden = true
+        }
     }
+    
+    
+    
+    
     
     // Current bet
     @IBAction func currentBetBtn(_ sender: UIButton) {
         
         if sender.tag == 1 {
             
-            if currentBet > 0 {
+            if currentBet > 5 {
                 currentBet -= 5
             }
             
         } else if sender.tag == 2 {
-            currentBet += 5
+            
+            if currentBet < userMoney {
+                currentBet += 5
+            } else if currentBet > userMoney {
+                
+                currentBet = userMoney
+                currentBetLabel.text = "\(currentBet)"
+                }
         }
+        impact.impactOccurred()
     }
     
     
+    
+    
+    
+    //// Game function
     func game() {
         
         if (firstSlot == secondSlot && secondSlot == thirdSlot)  {
@@ -116,20 +145,31 @@ class ViewController: UIViewController {
             
         } else {
             
+            if userMoney > currentBet {
             userMoney = userMoney - currentBet
             userMoneyLabel.text = "\(userMoney)"
             jackPotAmount = jackPotAmount + currentBet
             jackpotLabel.text = "\(jackPotAmount)"
-            
+            } else {
+                userMoneyLabel.text = "Game Over"
+                currentBetLabel.text = "-"
+               
+            }
         }
     }
     
-    
+
+    //// Reset Button
     @IBAction func resetBtn(_ sender: UIButton) {
+        impact.impactOccurred()
         reset()
     }
-    // Quit button
+    
+    
+    
+    //////// Quit button
     @IBAction func quitButton(_ sender: UIButton) {
+        impact.impactOccurred()
         UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
     }
     

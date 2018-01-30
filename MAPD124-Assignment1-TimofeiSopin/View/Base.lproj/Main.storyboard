@@ -67,7 +67,7 @@
                                             <action selector="currentBetBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M5D-h1-AL6"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dr5-cv-Hj1">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="dr5-cv-Hj1">
                                         <rect key="frame" x="45" y="36" width="162" height="39"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="32"/>
@@ -154,6 +154,7 @@
                         <outlet property="firstSlotImageView" destination="aXJ-D8-cgx" id="iad-VJ-9xp"/>
                         <outlet property="jackpotLabel" destination="c1A-nx-R9l" id="bjB-of-Vzz"/>
                         <outlet property="secondSlotImageView" destination="Fnz-Km-m4p" id="RGq-Wr-7SE"/>
+                        <outlet property="spinButton" destination="nDM-dZ-z5O" id="uZT-81-CNB"/>
                         <outlet property="thirdSlotImageView" destination="9Ld-0G-jiv" id="gRw-eC-zHq"/>
                         <outlet property="userMoneyLabel" destination="dr5-cv-Hj1" id="Adw-2Q-5rN"/>
                     </connections>
@@ -173,9 +174,9 @@
         <image name="quit" width="78" height="78"/>
         <image name="reset" width="78" height="78"/>
         <image name="rightArrow" width="58" height="58"/>
-        <image name="s1" width="408" height="408"/>
-        <image name="s3" width="549" height="549"/>
-        <image name="s6" width="385" height="385"/>
+        <image name="s1" width="400" height="400"/>
+        <image name="s3" width="400" height="400"/>
+        <image name="s6" width="400" height="400"/>
         <image name="slot" width="909" height="309"/>
         <image name="spinBtn" width="345" height="105"/>
         <image name="usermoney" width="288" height="96"/>

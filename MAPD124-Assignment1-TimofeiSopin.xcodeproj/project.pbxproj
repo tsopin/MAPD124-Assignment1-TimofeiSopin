@@ -13,6 +13,7 @@
 		7481A276201EA5AC00D025FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7481A275201EA5AC00D025FD /* Assets.xcassets */; };
 		7481A279201EA5AC00D025FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7481A277201EA5AC00D025FD /* LaunchScreen.storyboard */; };
 		7481A2DB201FFCB100D025FD /* bntSnd.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7481A2DA201FFCB100D025FD /* bntSnd.wav */; };
+		74FE09A3202293C9006DFAA3 /* SlotLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FE09A2202293C9006DFAA3 /* SlotLogic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7481A278201EA5AC00D025FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7481A27A201EA5AC00D025FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7481A2DA201FFCB100D025FD /* bntSnd.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bntSnd.wav; sourceTree = "<group>"; };
+		74FE09A2202293C9006DFAA3 /* SlotLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			children = (
 				7481A26E201EA5AC00D025FD /* AppDelegate.swift */,
 				7481A270201EA5AC00D025FD /* ViewController.swift */,
+				74FE09A2202293C9006DFAA3 /* SlotLogic.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			files = (
 				7481A271201EA5AC00D025FD /* ViewController.swift in Sources */,
 				7481A26F201EA5AC00D025FD /* AppDelegate.swift in Sources */,
+				74FE09A3202293C9006DFAA3 /* SlotLogic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

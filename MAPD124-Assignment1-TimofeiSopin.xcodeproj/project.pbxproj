@@ -12,8 +12,11 @@
 		7481A274201EA5AC00D025FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7481A272201EA5AC00D025FD /* Main.storyboard */; };
 		7481A276201EA5AC00D025FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7481A275201EA5AC00D025FD /* Assets.xcassets */; };
 		7481A279201EA5AC00D025FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7481A277201EA5AC00D025FD /* LaunchScreen.storyboard */; };
-		7481A2DB201FFCB100D025FD /* bntSnd.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7481A2DA201FFCB100D025FD /* bntSnd.wav */; };
 		74FE09A3202293C9006DFAA3 /* SlotLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FE09A2202293C9006DFAA3 /* SlotLogic.swift */; };
+		74FE09A92023A2F1006DFAA3 /* gameover.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FE09A52023A2F0006DFAA3 /* gameover.wav */; };
+		74FE09AA2023A2F1006DFAA3 /* spin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FE09A62023A2F0006DFAA3 /* spin.wav */; };
+		74FE09AB2023A2F1006DFAA3 /* reset.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FE09A72023A2F0006DFAA3 /* reset.wav */; };
+		74FE09AD2023A56A006DFAA3 /* betS.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FE09AC2023A56A006DFAA3 /* betS.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +27,11 @@
 		7481A275201EA5AC00D025FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7481A278201EA5AC00D025FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7481A27A201EA5AC00D025FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7481A2DA201FFCB100D025FD /* bntSnd.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bntSnd.wav; sourceTree = "<group>"; };
 		74FE09A2202293C9006DFAA3 /* SlotLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotLogic.swift; sourceTree = "<group>"; };
+		74FE09A52023A2F0006DFAA3 /* gameover.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameover.wav; sourceTree = "<group>"; };
+		74FE09A62023A2F0006DFAA3 /* spin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = spin.wav; sourceTree = "<group>"; };
+		74FE09A72023A2F0006DFAA3 /* reset.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = reset.wav; sourceTree = "<group>"; };
+		74FE09AC2023A56A006DFAA3 /* betS.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = betS.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,7 @@
 		7481A280201EA5E100D025FD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				74FE09A2202293C9006DFAA3 /* SlotLogic.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -89,7 +96,6 @@
 			children = (
 				7481A26E201EA5AC00D025FD /* AppDelegate.swift */,
 				7481A270201EA5AC00D025FD /* ViewController.swift */,
-				74FE09A2202293C9006DFAA3 /* SlotLogic.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -97,7 +103,10 @@
 		7481A283201EA64600D025FD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7481A2DA201FFCB100D025FD /* bntSnd.wav */,
+				74FE09A52023A2F0006DFAA3 /* gameover.wav */,
+				74FE09A72023A2F0006DFAA3 /* reset.wav */,
+				74FE09A62023A2F0006DFAA3 /* spin.wav */,
+				74FE09AC2023A56A006DFAA3 /* betS.wav */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -161,10 +170,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74FE09AB2023A2F1006DFAA3 /* reset.wav in Resources */,
+				74FE09A92023A2F1006DFAA3 /* gameover.wav in Resources */,
 				7481A279201EA5AC00D025FD /* LaunchScreen.storyboard in Resources */,
+				74FE09AA2023A2F1006DFAA3 /* spin.wav in Resources */,
 				7481A276201EA5AC00D025FD /* Assets.xcassets in Resources */,
 				7481A274201EA5AC00D025FD /* Main.storyboard in Resources */,
-				7481A2DB201FFCB100D025FD /* bntSnd.wav in Resources */,
+				74FE09AD2023A56A006DFAA3 /* betS.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

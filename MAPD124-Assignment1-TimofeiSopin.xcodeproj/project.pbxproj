@@ -17,6 +17,10 @@
 		74FE09AA2023A2F1006DFAA3 /* spin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FE09A62023A2F0006DFAA3 /* spin.wav */; };
 		74FE09AB2023A2F1006DFAA3 /* reset.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FE09A72023A2F0006DFAA3 /* reset.wav */; };
 		74FE09AD2023A56A006DFAA3 /* betS.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FE09AC2023A56A006DFAA3 /* betS.wav */; };
+		74FE09AF202413C0006DFAA3 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FE09AE202413C0006DFAA3 /* SecondViewController.swift */; };
+		74FE09B12024F6C6006DFAA3 /* jackpot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FE09B02024F6C5006DFAA3 /* jackpot.wav */; };
+		74FE09B32024F6CC006DFAA3 /* quit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FE09B22024F6CC006DFAA3 /* quit.wav */; };
+		74FE09B52024F6EC006DFAA3 /* legend.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74FE09B42024F6EC006DFAA3 /* legend.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		74FE09A62023A2F0006DFAA3 /* spin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = spin.wav; sourceTree = "<group>"; };
 		74FE09A72023A2F0006DFAA3 /* reset.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = reset.wav; sourceTree = "<group>"; };
 		74FE09AC2023A56A006DFAA3 /* betS.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = betS.wav; sourceTree = "<group>"; };
+		74FE09AE202413C0006DFAA3 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		74FE09B02024F6C5006DFAA3 /* jackpot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jackpot.wav; sourceTree = "<group>"; };
+		74FE09B22024F6CC006DFAA3 /* quit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = quit.wav; sourceTree = "<group>"; };
+		74FE09B42024F6EC006DFAA3 /* legend.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = legend.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +104,7 @@
 			children = (
 				7481A26E201EA5AC00D025FD /* AppDelegate.swift */,
 				7481A270201EA5AC00D025FD /* ViewController.swift */,
+				74FE09AE202413C0006DFAA3 /* SecondViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -106,6 +115,9 @@
 				74FE09A52023A2F0006DFAA3 /* gameover.wav */,
 				74FE09A72023A2F0006DFAA3 /* reset.wav */,
 				74FE09A62023A2F0006DFAA3 /* spin.wav */,
+				74FE09B02024F6C5006DFAA3 /* jackpot.wav */,
+				74FE09B22024F6CC006DFAA3 /* quit.wav */,
+				74FE09B42024F6EC006DFAA3 /* legend.wav */,
 				74FE09AC2023A56A006DFAA3 /* betS.wav */,
 			);
 			path = "Supporting Files";
@@ -171,10 +183,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				74FE09AB2023A2F1006DFAA3 /* reset.wav in Resources */,
+				74FE09B52024F6EC006DFAA3 /* legend.wav in Resources */,
 				74FE09A92023A2F1006DFAA3 /* gameover.wav in Resources */,
 				7481A279201EA5AC00D025FD /* LaunchScreen.storyboard in Resources */,
+				74FE09B12024F6C6006DFAA3 /* jackpot.wav in Resources */,
 				74FE09AA2023A2F1006DFAA3 /* spin.wav in Resources */,
 				7481A276201EA5AC00D025FD /* Assets.xcassets in Resources */,
+				74FE09B32024F6CC006DFAA3 /* quit.wav in Resources */,
 				7481A274201EA5AC00D025FD /* Main.storyboard in Resources */,
 				74FE09AD2023A56A006DFAA3 /* betS.wav in Resources */,
 			);
@@ -187,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74FE09AF202413C0006DFAA3 /* SecondViewController.swift in Sources */,
 				7481A271201EA5AC00D025FD /* ViewController.swift in Sources */,
 				7481A26F201EA5AC00D025FD /* AppDelegate.swift in Sources */,
 				74FE09A3202293C9006DFAA3 /* SlotLogic.swift in Sources */,

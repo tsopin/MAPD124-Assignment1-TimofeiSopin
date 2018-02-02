@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 
+
 class ViewController: UIViewController {
     
     let impact = UIImpactFeedbackGenerator()
@@ -27,7 +28,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var betBtnDown: UIButton!
     @IBOutlet weak var resetBtn: UIButton!
     
-  ///////////////////////////////////Variables///////////////////////////////////////
+    ///////////////////////////////////Variables///////////////////////////////////////
     
     var firstSlot : Int = 0
     var secondSlot : Int = 0
@@ -41,14 +42,17 @@ class ViewController: UIViewController {
     
     var userMoney : Int = 0
     var jackPotAmount : Int = 0
-    let slotArray = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10", "s11", "s12"]
+    let slotArray = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10", "s11", "s12", "broken"]
     
     var betIn = [0, 0, 0]
     var betResult = [0, 0, 0]
     
+    //    var slotLogic = SlotLogic()
     
     
-  // Reset app, set all variables to default
+    
+    
+    // Reset app, set all variables to default
     func reset() {
         userMoney = 100
         userMoneyLabel.text = "\(userMoney)"
@@ -96,9 +100,9 @@ class ViewController: UIViewController {
         
     }
     
-    func gameoverSound() {
+    func legendSound() {
         
-        let soundURL = Bundle.main.url(forResource: "gameover", withExtension: "wav")
+        let soundURL = Bundle.main.url(forResource: "legend", withExtension: "wav")
         
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: soundURL!)
@@ -121,14 +125,39 @@ class ViewController: UIViewController {
             print(error)
         }
         audioPlayer.play()
+    }
+    func quitSound() {
         
+        let soundURL = Bundle.main.url(forResource: "quit", withExtension: "wav")
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL!)
+        }
+        catch {
+            print(error)
+        }
+        audioPlayer.play()
+    }
+    func jackpotSound() {
+        
+        let soundURL = Bundle.main.url(forResource: "jackpot", withExtension: "wav")
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL!)
+        }
+        catch {
+            print(error)
+        }
+        audioPlayer.play()
     }
     
     
     // Spin Button
     @IBAction func spinButton(_ sender: Any) {
         
-        probabilityGenerator()
+        _ = probabilityGenerator()
+        
+        
         firstSlot = Int(betIn[0])
         secondSlot = Int(betIn[1])
         thirdSlot = Int(betIn[2])
@@ -167,6 +196,7 @@ class ViewController: UIViewController {
             
             if currentBet > 5 {
                 currentBet -= 5
+                checkMoneyForBet()
             }
             
         } else if sender.tag == 2 {
@@ -174,34 +204,42 @@ class ViewController: UIViewController {
             if currentBet < userMoney {
                 currentBet += 5
             } else if userMoney < currentBet {
-                
+   
             }
         }
         betSound()
         impact.impactOccurred()
     }
-    
-    
+
+    // Checking if user has enough money for bet
+    func checkMoneyForBet() {
+        if userMoney < currentBet {
+            
+            betBtnUp.isEnabled = false
+            spinButton.isEnabled = false
+        }else{
+            betBtnUp.isEnabled = true
+            spinButton.isEnabled = true
+        }
+    }
     
     
     
     // Game function
     func game() {
         
-        if firstSlot == 2 && secondSlot == 2 && thirdSlot == 2  {
+    // Checking for Jackpot
+        if firstSlot == 11 && secondSlot == 11 && thirdSlot == 11  {
             
             userMoney = userMoney + jackPotAmount
             userMoneyLabel.text = "\(userMoney)"
             jackPotAmount = 0
-            jackpotLabel.text = "\(jackPotAmount)"
+            jackpotLabel.text = "You WON \(jackPotAmount) !"
             print("JACKPOT")
-            
+            jackpotSound()
         }
             
-        // Checking for x3
-            
-
-            
+    // Checking for x3
         else if  firstSlot == 0 && secondSlot == 0 && thirdSlot == 0 {
             
             userMoney = userMoney + currentBet * 8
@@ -214,6 +252,12 @@ class ViewController: UIViewController {
             userMoney = userMoney + currentBet * 8
             userMoneyLabel.text = "\(userMoney)"
             print("Explorer x3")
+        }
+        else if firstSlot == 2 && secondSlot == 2 && thirdSlot == 2 {
+            
+            userMoney = userMoney + currentBet * 40
+            userMoneyLabel.text = "\(userMoney)"
+            print("RZKw x3")
         }
             
         else if firstSlot == 3 && secondSlot == 3 && thirdSlot == 3 {
@@ -264,18 +308,16 @@ class ViewController: UIViewController {
             userMoneyLabel.text = "\(userMoney)"
             print("Het x3")
         }
-        else if firstSlot == 11 && secondSlot == 11 && thirdSlot == 11 {
+        else if firstSlot == 12 && secondSlot == 12 && thirdSlot == 12 {
             
-            userMoney = userMoney + currentBet * 50
+            userMoney = userMoney + currentBet * 2
             userMoneyLabel.text = "\(userMoney)"
-            print("RzkW x3")
+            print("Broken x3")
         }
-      
             
-        // Checking for x2
             
-
             
+    // Checking for x2
         else if firstSlot == 0 && secondSlot == 0 || secondSlot == 0 && thirdSlot == 0 || firstSlot == 0 && thirdSlot == 0 {
             
             userMoney = userMoney + currentBet * 2
@@ -291,9 +333,9 @@ class ViewController: UIViewController {
         }
         else if firstSlot == 2 && secondSlot == 2 || secondSlot == 2 && thirdSlot == 2 || firstSlot == 2 && thirdSlot == 2 {
             
-            userMoney = userMoney + currentBet * 3
+            userMoney = userMoney + currentBet * 10
             userMoneyLabel.text = "\(userMoney)"
-            print("Marshall x2")
+            print("RZKw x2")
         }
         else if firstSlot == 3 && secondSlot == 3 || secondSlot == 3 && thirdSlot == 3 || firstSlot == 3 && thirdSlot == 3 {
             
@@ -339,20 +381,23 @@ class ViewController: UIViewController {
         }
         else if firstSlot == 10 && secondSlot == 10 || secondSlot == 10 && thirdSlot == 10 || firstSlot == 10 && thirdSlot == 10 {
             
-            userMoney = userMoney + currentBet * 8
+            userMoney = userMoney + currentBet * 9
             userMoneyLabel.text = "\(userMoney)"
             print("Het x2")
         }
         else if firstSlot == 11 && secondSlot == 11 || secondSlot == 11 && thirdSlot == 11 || firstSlot == 11 && thirdSlot == 11 {
             
-            userMoney = userMoney + currentBet * 10
+            userMoney = userMoney + currentBet * 11
             userMoneyLabel.text = "\(userMoney)"
-            print("RzkW x2")
+            print("Marshall x2")
         }
+        else if firstSlot == 12 && secondSlot == 12 || secondSlot == 12 && thirdSlot == 12 || firstSlot == 12 && thirdSlot == 12 {
             
-            
-            
-        else {
+            userMoney = userMoney + currentBet
+            userMoneyLabel.text = "\(userMoney)"
+            print("Broken x2")
+        }
+            else {
             
             if userMoney > currentBet {
                 userMoney = userMoney - currentBet
@@ -363,14 +408,13 @@ class ViewController: UIViewController {
             } else {
                 userMoneyLabel.text = "Game Over"
                 currentBetLabel.text = "-"
-                gameoverSound()
-                
             }
         }
+        checkMoneyForBet()
     }
     
     
-    
+    // Function calculates probapility of results
     func chance(value: Int, minLimit: Int, maxLimit: Int) -> Int {
         if (value >= minLimit && value <= maxLimit)
         {
@@ -382,48 +426,48 @@ class ViewController: UIViewController {
     }
     
     func probabilityGenerator() -> [Int] {
-    
+        
         for spin in 0..<3 {
             betResult[spin] = (Int(arc4random_uniform(100) + 1))
             switch (betResult[spin]) {
                 
-            case chance(value: betResult[spin], minLimit: 1, maxLimit: 14): // chance 0,15
+            case chance(value: betResult[spin], minLimit: 1, maxLimit: 9): // chance 0,09
                 betIn[spin] = 0
-              
-            case chance(value: betResult[spin], minLimit: 15, maxLimit: 30): // chance 0,14
+                
+            case chance(value: betResult[spin], minLimit: 10, maxLimit: 17): // chance 0,08
                 betIn[spin] = 1
-        
-            case chance(value: betResult[spin], minLimit: 31, maxLimit: 42): // chance 0,12
+                
+            case chance(value: betResult[spin], minLimit: 18, maxLimit: 24): // chance 0,07
                 betIn[spin] = 2
-        
-            case chance(value: betResult[spin], minLimit: 43, maxLimit: 53): // chance 0,11
+                
+            case chance(value: betResult[spin], minLimit: 25, maxLimit: 30): // chance 0,06
                 betIn[spin] = 3
                 
-            case chance(value: betResult[spin], minLimit: 54, maxLimit: 63): // chance 0,10
+            case chance(value: betResult[spin], minLimit: 31, maxLimit: 35): // chance 0,05
                 betIn[spin] = 4
-               
-            case chance(value: betResult[spin], minLimit: 64, maxLimit: 72): // chance 0,09
+                
+            case chance(value: betResult[spin], minLimit: 36, maxLimit: 40): // chance 0,05
                 betIn[spin] = 5
-            
-            case chance(value: betResult[spin], minLimit: 63, maxLimit: 79): // chance 0,08
+                
+            case chance(value: betResult[spin], minLimit: 41, maxLimit: 45): // chance 0,05
                 betIn[spin] = 6
-              
-            case chance(value: betResult[spin], minLimit: 80, maxLimit: 85): // chance 0,07
+                
+            case chance(value: betResult[spin], minLimit: 46, maxLimit: 50): // chance 0,05
                 betIn[spin] = 7
-               
-            case chance(value: betResult[spin], minLimit: 86, maxLimit: 90): // chance 0,06
+                
+            case chance(value: betResult[spin], minLimit: 51, maxLimit: 55): // chance 0,05
                 betIn[spin] = 8
-              
-            case chance(value: betResult[spin], minLimit: 91, maxLimit: 94): // chance 0,04
+                
+            case chance(value: betResult[spin], minLimit: 56, maxLimit: 59): // chance 0,04
                 betIn[spin] = 9
                 
-            case chance(value: betResult[spin], minLimit: 95, maxLimit: 97): // chance 0,03
+            case chance(value: betResult[spin], minLimit: 60, maxLimit: 62): // chance 0,03
                 betIn[spin] = 10
-               
-            case chance(value: betResult[spin], minLimit: 98, maxLimit: 100): // chance 0,01
+                
+            case chance(value: betResult[spin], minLimit: 63, maxLimit: 64): // chance 0,01
                 betIn[spin] = 11
                 
-            default: break
+            default: betIn[spin] = 12
                 
             }
         }
@@ -438,11 +482,20 @@ class ViewController: UIViewController {
         reset()
         resetSound()
     }
-
+    
+    @IBAction func legendButton(_ sender: UIButton) {
+        
+        let secondVC  = storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as! SecondViewController
+        self.present(secondVC, animated:true, completion:nil)
+    
+        impact.impactOccurred()
+        legendSound()
+    }
     
     //////// Quit button
     @IBAction func quitButton(_ sender: UIButton) {
         impact.impactOccurred()
+        quitSound()
         UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
     }
     
